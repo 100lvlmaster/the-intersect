@@ -19,4 +19,4 @@ To run:
 
 `yarn run dev` or `npm run dev`
 
-created by: [100lvlmaster](https://github.com/100lvlmaster)
+put together by : [100lvlmaster](https://github.com/100lvlmaster)
