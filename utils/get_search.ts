@@ -13,7 +13,7 @@ export const getSearch = async (searchQuery: string) => {
   const images = await page.evaluate(() =>
     Array.from(document.images, (e) => e.src)
   );
-  const filteredList = images.filter((e) => e !== "");
+  const filteredList = images.filter((e: string) => e !== "");
   // keep only 50 images
 
   await page.screenshot({ path: "example.png" });

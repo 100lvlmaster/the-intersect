@@ -10,14 +10,16 @@
   "dependencies": {
     "@svgr/webpack": "^5.5.0",
     "axios": "^0.21.1",
+    "dom-parser": "^0.1.6",
     "next": "^10.2.2",
     "next-themes": "^0.0.14",
-    "puppeteer": "^9.1.1",
+    "puppeteer": "^10.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "swr": "^0.5.6"
   },
   "devDependencies": {
+    "@types/dom-parser": "^0.1.1",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "autoprefixer": "^10.2.5",
