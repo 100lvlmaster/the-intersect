@@ -1,9 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "Dynamoe";
+  /* font-style: regular; */
+  src: url(/fonts/dynamoe-regular.otf) format("otf");
+}
 html,
 body {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 ::selection {
   background-color: #47a3f3;

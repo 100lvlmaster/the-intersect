@@ -4,7 +4,16 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head></Head>
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/dynamoe-regular.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin="anonymous"
+          />
+          <meta charSet="UTF-8" />
+        </Head>
         <body>
           <Main />
           <NextScript />

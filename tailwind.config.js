@@ -5,7 +5,9 @@ module.exports = {
   darkMode: "class", // or 'media' or 'class'
   theme: {
     extend: {
-      fontFamily: {},
+      fontFamily: {
+        sans: ["Dynamoe", ...fontFamily.sans],
+      },
     },
   },
   variants: {
