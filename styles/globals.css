@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: "Dynamoe";
+  font-family: "Impact";
   /* font-style: regular; */
-  src: url(/fonts/dynamoe-regular.otf) format("otf");
+  src: url(/fonts/impact-label-reversed.woff) format("woff");
 }
 html,
 body {

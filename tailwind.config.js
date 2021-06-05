@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Dynamoe", ...fontFamily.sans],
+        sans: ["Impact", ...fontFamily.sans],
       },
     },
   },

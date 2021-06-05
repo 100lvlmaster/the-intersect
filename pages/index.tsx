@@ -1,30 +1,21 @@
-import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { getImages } from "../lib/get_images";
 import FlashScreen from "../components/flash_screen";
 import { saveTheme, getTheme } from "../utils/theme_helper";
 const Home = () => {
-  const [mounted, setMount] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
   const [showImages, setShowImages] = useState(false);
   let query: string = "";
   //
-  const onChangeTheme = (val: string) => {
-    setTheme(val);
-    saveTheme(val);
-    if (!mounted) setMount(!mounted);
-  };
   const onSubmitButton = async () => {
+    setLoading(true);
     const data = await getImages(query);
     setImages(data.data);
-    console.log(data.data.length);
-
     setShowImages(true);
   };
 
   /// Call on mount
-  useEffect(() => onChangeTheme(getTheme()), []);
   const handleChangeEvent = (e: any) => (query = e.target.value);
   return (
     <div className="bg-black text-white">
@@ -34,28 +25,37 @@ const Home = () => {
           onEnd={() => {
             setShowImages(false);
             setImages([]);
+            setLoading(false);
           }}
         ></FlashScreen>
       ) : (
         <div className="flex flex-col">
           <div className="h-screen w-full flex flex-col justify-items-stretch ">
             <Spacer />
-            <div className="flex flex-col justify-items-center items-center space-y-10">
-              <h1 className="bg-red-600 rounded-lg text-3xl  h-10 p-1 text-center">
-                Intersect
-              </h1>
-              <input
-                placeholder="Search by name"
-                className="text-black bg-gray-200 rounded-full text-sm p-2"
-                onChange={(e) => handleChangeEvent(e)}
-              ></input>
-              <button
-                className="bg-red-600 text-white p-3 rounded-lg hover:shadow-lg "
-                onClick={onSubmitButton}
-              >
-                Flash
-              </button>
-            </div>
+            {loading ? (
+              <div className="flex flex-col justify-items-center items-center space-y-10">
+                <h1 className="bg-red-600 rounded-lg text-3xl  h-10 p-1 text-center">
+                  downloading..
+                </h1>
+              </div>
+            ) : (
+              <div className="flex flex-col justify-items-center items-center space-y-10">
+                <h1 className="bg-red-600 rounded-lg text-3xl  h-10 p-1 text-center">
+                  The Intersect
+                </h1>
+                <input
+                  placeholder="search .."
+                  className="text-black bg-gray-200 rounded-lg text-sm p-2"
+                  onChange={(e) => handleChangeEvent(e)}
+                ></input>
+                <button
+                  className="bg-red-600 text-white p-3 rounded-lg hover:shadow-lg text-bold"
+                  onClick={onSubmitButton}
+                >
+                  Flash
+                </button>
+              </div>
+            )}
             <Spacer />
             <div className="flex flex-row p-10">
               <Spacer />

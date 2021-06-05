@@ -7,9 +7,9 @@ class MyDocument extends Document {
         <Head>
           <link
             rel="preload"
-            href="/fonts/dynamoe-regular.otf"
+            href="/fonts/impact-label-reversed.woff"
             as="font"
-            type="font/otf"
+            type="font/woff"
             crossOrigin="anonymous"
           />
           <meta charSet="UTF-8" />
