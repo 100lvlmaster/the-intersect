@@ -10,3 +10,5 @@ export const getImages = async (searchString: string) => {
   );
   return data.data;
 };
+
+//
