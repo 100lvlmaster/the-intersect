@@ -1,12 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getImages } from "../lib/get_images";
 import FlashScreen from "../components/flash_screen";
-import { saveTheme, getTheme } from "../utils/theme_helper";
+import NextHead from "next/head";
+import { useRouter } from "next/router";
+
 const Home = () => {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [images, setImages] = useState([]);
   const [showImages, setShowImages] = useState(false);
   let query: string = "";
+  const meta = {
+    title: "The Intersect (not)",
+    description: `The intersect program from the show chuck`,
+    image:
+      "https://static.wikia.nocookie.net/chuck/images/f/f1/The_Intersect.jpg/revision/latest?cb=20100219205326",
+    type: "website",
+    url: "https://the-intersect.vercel.app/",
+  };
   //
   const onSubmitButton = async () => {
     setLoading(true);
@@ -19,6 +30,42 @@ const Home = () => {
   const handleChangeEvent = (e: any) => (query = e.target.value);
   return (
     <div className="bg-black text-white">
+      <NextHead>
+        <title>{meta.title}</title>
+        <meta name="author" content="Navin Kodag" />
+        <meta name="stuff" content="follow, index" />
+        <meta name="description" content={meta.description} />
+        <link rel="canonical" href={`${meta.url}${router.asPath}`} />
+        <meta property="og:description" content={meta.description} />
+        <meta property="og:image" content={meta.image} key="ogimage" />
+        <meta property="og:type" content={meta.type} />
+        <meta property="og:title" content={meta.title} key="ogtitle" />
+        <meta
+          property="og:site_name"
+          content="The Intersect (not)"
+          key="ogsitename"
+        />
+        <meta property="og:url" content={`${meta.url}${router.asPath}`} />
+
+        <meta
+          name="twitter:card"
+          content="summary_large_image"
+          key="twhandle"
+        />
+        <meta name="twitter:site" content="@100lvlmaster" />
+        <meta name="twitter:creator" content={"@100lvlmaster"} key="twhandle" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content={meta.image} />
+        <meta
+          name="keywords"
+          content="100lvlmaster, Navin Kodag, HTML, CSS, JavaScript, Next.js, Tailwind, "
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+      </NextHead>
       {showImages ? (
         <FlashScreen
           images={images}
