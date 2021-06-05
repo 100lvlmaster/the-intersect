@@ -32,8 +32,8 @@ const Home = () => {
         <FlashScreen
           images={images}
           onEnd={() => {
-            setShowImages(false);
-            setImages([]);
+            // setShowImages(false);
+            // setImages([]);
           }}
         ></FlashScreen>
       ) : (
