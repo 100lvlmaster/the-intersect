@@ -12,7 +12,7 @@ const FlashScreen = (props) => {
     if (props.images.length < 70 && pass < 2) {
       return toggleImages(0, ++pass);
     }
-    // props.onEnd();
+    props.onEnd();
     return;
   };
   //
